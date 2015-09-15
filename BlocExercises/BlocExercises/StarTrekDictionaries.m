@@ -11,18 +11,24 @@
 @implementation StarTrekDictionaries
 
 - (NSString *)favoriteDrinkForStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
-    /* WORK HERE */
-    return @"";
+    
+    return characterDictionary[@"favorite drink"];
 }
 
 - (NSArray *)arrayOfFavoriteDrinksForStarTrekCharacters:(NSArray *)charactersArray {
-    /* WORK HERE */
-    return @[];
+    NSMutableArray *array = [NSMutableArray array];
+    
+    for (NSDictionary *characterDictionary in charactersArray) {
+        [array addObject:characterDictionary[@"favorite drink"]];
+    }
+    return array;
 }
-
+//    return [charactersArray valueForKey:@"favorite drink"];
+//}
 - (NSDictionary *)dictionaryWithQuoteAddedToStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
-    /* WORK HERE */
-    return @{};
+    NSMutableDictionary *mutableDictionary = [characterDictionary mutableCopy];
+    mutableDictionary[@"quote"] = @"If you can't find it within yourself to stand up and tell the truth about what happened, you don't deserve to wear that uniform!";
+    return mutableDictionary;
 }
 
 @end
